@@ -75,6 +75,8 @@ rulecolor=\color{black},
 
 Slow6502 是我们小组编写的一个 MOS Technologies 6502 微处理器和兼容系统的通用模拟器。Slow6502 可以模拟 1 MHz NMOS 6502 或 CMOS 65C02、32KB RAM、16KB ROM，并且可以模拟 MOS 6551 Motorola 6850 ACIA、MOS 6522 VIA 和 6545 CRTC 等外设，从而模拟一个完整的系统。此外，Slow6502 还支持 MOS 65C02 等 6502 的变体，以及不同内存和外设地址布局的设备。
 
+Slow6502 提供加载程序和加载 ROM 等功能，使得众多6502的程序可以在其上执行。此外，如果用户只有针对特定平台的 ROM 或者二进制文件，则其可以轻松地通过修改 Slow6502 的 machine 部分的源码来添加不同外设和内存布局的设备，从而运行对应的二进制文件。
+
 该项目由 Java 8 写成，实现了共 30 个设计模式，包括 23 个 GoF 设计模式和 7 个 非 GoF 设计模式。
 
 \begin{figure}[H]
@@ -124,6 +126,8 @@ MOS 6502 是由 Chuck Peddle 领导的 MOS Technology 团队设计的。设计�
 
 \subsection{单例模式（Singleton）}
 
+\subsection{单例模式简介}
+
 单例模式是一种常用的软件设计模式，它保证一个类只有一个实例，并提供一个全局访问点来访问该实例。
 
 单例模式通常用于某个类需要在整个应用程序中只有一个实例的场景，例如系统的配置类或者线程池。
@@ -145,6 +149,14 @@ MOS 6502 是由 Chuck Peddle 领导的 MOS Technology 团队设计的。设计�
 如果单例类中存在大量长生命周期的资源，那么单例模式还有一个缺点就是难以测试，因为它的实例是全局的，如果要测试单例类的方法，那么需要改变全局的实例，这样就会影响到其他的测试用例。
 
 在实际开发中，需要根据实际情况来判断是否使用单例模式。如果需要保证一个类只有一个实例，并提供一个全局访问点，那么可以考虑使用单例模式。
+
+\subsection{单例模式在本组项目中的应用}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/单例.pdf}
+  \caption{单例模式在 Slow6502 中的类图}
+\end{figure}
 
 
 
