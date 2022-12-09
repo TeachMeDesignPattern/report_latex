@@ -24,4 +24,14 @@
 \item 中介者模式可能会导致性能问题，因为它需要在多个对象之间进行额外的通信。
 \end{enumerate}
 
-\subsubsection{【施工中】中介者模式在项目中的应用}
+\subsubsection{中介者模式在项目中的应用}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/中介者模式.pdf}
+    \caption{中介者模式在 Slow6502 中的类图}
+\end{figure}
+
+我们的项目中，Bus 就是作为 CPU 、内存和各个外设之间的中介者使用的。如果没有 Bus 作为中介者，模拟器中各个设备对象之间存在比较复杂的引用关系，导致它们之间的依赖关系结构混乱而且难以复用该对象。通过这种模式，我们使得模拟器能够方便地复用各种外设。
+
+  

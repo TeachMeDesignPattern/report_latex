@@ -18,5 +18,12 @@
     \item 可以通过定义统一的抽象语法树来统一语言解释器的实现，从而更加方便地实现多语言支持。
 \end{enumerate}
 
-\subsubsection{【施工中】解释器模式在项目中的应用}
+\subsubsection{解释器模式在项目中的应用}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Interpreter.pdf}
+    \caption{解释器模式在 Slow6502 中的类图}
+\end{figure}
+
+在我们的项目中，解释器模式主要用于将总线上流动的数据解析为终端外设的 Ansi Control Sequence，解析后的 Ansi Control Sequence 为一串命令，供 VT100 终端使用。这里解释器的语言文法规则较为简洁，即 Ansi Control Sequence 的文法。

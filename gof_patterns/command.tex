@@ -26,7 +26,13 @@
 \end{enumerate}
 上面这些缺点并不会导致命令模式无法使用，但是在使用命令模式时需要注意这些缺点，并采取适当的措施来应对这些缺点。例如，你可以通过合理地设计系统来减少对象的数量，或者采用更高效的数据结构来存储命令历史记录，以减少存储空间的消耗。
 
-\subsubsection{【施工中】命令模式在项目中的应用}
+\subsubsection{命令模式在项目中的应用}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Command.pdf}
+    \caption{命令模式在 Slow6502 中的类图}
+\end{figure}
 
+在我们的项目中，我们使用命令模式来抽象终端外设的 Ansi Control Sequence。这样就可以方便地对 ANSI 控制序列进行参数化，从而避免使用硬编码的 ANSI 控制序列。
 

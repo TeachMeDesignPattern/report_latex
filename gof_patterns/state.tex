@@ -29,4 +29,18 @@
 
 
 
-\subsubsection{【施工中】状态机模式在项目中的应用}
+\subsubsection{状态机模式在项目中的应用}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/State.pdf}
+    \caption{状态机模式在 Slow6502 中的类图}
+\end{figure}
+
+我们的CPU使用了状态机模式，stateProxy包含CPUState成员，用来表示CPU的一些状态（如寄存器的值等）。CPU在调用step函数时，会进入下一个状态，即改变stateProxy。
+
+使用状态机模式的好处是可以让对象在内部状态改变时改变它的行为，而不需要修改代码。这使得状态机模式非常灵活，可以应对各种复杂的业务场景。
+
+在我们这个例子中，使用状态机模式可以让CPU根据不同的状态（例如寄存器的值）来改变它的行为，而不需要在代码中做过多的条件判断。这可以使得CPU的实现更加简洁，更容易维护。
+
+  

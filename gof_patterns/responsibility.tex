@@ -20,4 +20,13 @@
 \item 责任链模式可能会导致循环依赖，特别是在请求发送者和处理者之间存在多对多的关系时。
 \end{enumerate}
 
-\subsubsection{【施工中】责任链模式在项目中的应用}
+\subsubsection{责任链模式在项目中的应用}
+
+在我们的项目中，责任链模式被用于处理异常，例如：
+\begin{lstlisting}
+    public Memory(int startAddress, int endAddress) throws MemoryRangeException {
+        this(startAddress, endAddress, false);
+    }
+\end{lstlisting}
+
+通过定义 \lstinline{catch (MemoryRangeException ex)}，完成处理异常的责任的传递。

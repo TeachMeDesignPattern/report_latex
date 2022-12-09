@@ -52,4 +52,12 @@ class TreeVisitor {
 \item 访问者模式可能会导致性能问题，因为它需要多次遍历对象结构来实现操作。
 \end{enumerate}
 
-\subsubsection{【施工中】访问者模式在项目中的应用}
+\subsubsection{访问者模式在项目中的应用}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/Visitor.pdf}
+  \caption{访问者模式在 Slow6502 中的类图}
+\end{figure}
+
+在我们的项目中，CPU 对于 IR 寄存器的访问就是基于访问者模式实现的。CPU State 为一个 IR 中的每个元素提供多种访问方式，即 \lstinline{Bit67IrVisitor} 和 \lstinline{Bit35IrVisitor}。这样的设计可以允许在不更改 IR 寄存器结构的情况下添加新的操作，从而使得程序更加灵活。

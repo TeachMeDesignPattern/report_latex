@@ -22,10 +22,12 @@
     \item 可能会掩盖子系统的问题：如果子系统存在问题，外观模式可能会掩盖这些问题，导致客户端无法及时发现并解决问题。
 \end{enumerate}
 
-\subsubsection{【施工中】外观模式在项目中的应用}
+\subsubsection{外观模式在项目中的应用}
 
-\begin{figure}[htb]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Facade.pdf}
     \caption{外观模式在 Slow6502 中的类图}
 \end{figure}
+
+本项目中，我们的 CPU State 类就是一个 Facade 。如果不使用这个 Facade ，那么各个寄存器的操作逻辑会被分散在 CPU 类中的各个部分。而使用了 Facade 模式之后，CPU 类可以使用 CPU State 提供简单的接口来访问一个子系统中的一组类，从而简化了逻辑，使其他类可以更简单地使用子系统，而不必深入了解其内部工作原理。

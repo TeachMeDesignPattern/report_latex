@@ -44,4 +44,15 @@ class Button {
 \item 观察者模式可能会导致循环依赖，特别是在观察者和被观察者之间存在多对多的关系时。
 \end{enumerate}
 
-\subsubsection{【施工中】观察者模式在项目中的应用}
+\subsubsection{观察者模式在项目中的应用}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/Observer.pdf}
+  \caption{观察者模式在 Slow6502 中的类图}
+\end{figure}
+
+
+我们在 \lstinline{Device} 类里面使用了观察者模式，它有一个\lstinline{deviceChangeListeners}数组成员，可以通过\lstinline{notifyListener}函数以此调用它们的\lstinline{deviceStateChanged}函数，\lstinline{VideoWindow}实现了这个函数，会依次修改相应的属性。这样，当\lstinline{Device}类的状态发生变化时，它就可以通过调用观察者列表中的回调函数来通知观察者。
+
+使用观察者模式的好处在于它可以让主体和观察者之间松散耦合。因为观察者只需要实现特定的回调函数，而主体只需要维护一个观察者列表，所以它们之间的依赖关系很少。这样，主体和观察者都可以独立地变化和扩展，而不会影响对方。
